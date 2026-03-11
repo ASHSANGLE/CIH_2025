@@ -1,0 +1,544 @@
+/* src/components/onboarding/onboarding.css — LIGHT MODE */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&display=swap');
+
+/* ── Base ─────────────────────────────────────────────────────── */
+.onb-root {
+    min-height: 100vh;
+    background: #f8fafc;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 32px 16px;
+    font-family: 'DM Sans', sans-serif;
+    position: relative;
+    overflow-y: auto;
+}
+
+.onb-root::before {
+    content: '';
+    position: fixed;
+    top: -120px;
+    left: -80px;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.onb-root::after {
+    content: '';
+    position: fixed;
+    bottom: -80px;
+    right: -80px;
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* ── Container ───────────────────────────────────────────────── */
+.onb-container {
+    width: 100%;
+    max-width: 680px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Header ──────────────────────────────────────────────────── */
+.onb-header {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.onb-brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    background: rgba(16, 185, 129, 0.08);
+    color: #059669;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    letter-spacing: 0.3px;
+}
+
+.onb-title {
+    font-size: 32px;
+    font-weight: 900;
+    color: #0f172a;
+    margin: 0 0 8px;
+    letter-spacing: -0.5px;
+}
+
+.onb-subtitle {
+    color: #64748b;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* ── Step Indicators ─────────────────────────────────────────── */
+.onb-steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding: 0 4px;
+}
+
+.onb-step-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.onb-step-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border: 2px solid #e2e8f0;
+    background: #fff;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.onb-step-circle.done {
+    background: #10b981;
+    border-color: #10b981;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 900;
+    transform: scale(0.9);
+}
+
+.onb-step-circle.active {
+    background: rgba(16, 185, 129, 0.08);
+    border-color: #10b981;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+.onb-step-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #94a3b8;
+    text-align: center;
+    white-space: nowrap;
+    transition: color 0.3s;
+}
+
+.onb-step-label.active {
+    color: #10b981;
+}
+
+.onb-step-line {
+    flex: 1;
+    height: 2px;
+    background: #e2e8f0;
+    margin: 0 8px;
+    margin-bottom: 22px;
+    border-radius: 2px;
+    transition: background 0.4s;
+}
+
+.onb-step-line.done {
+    background: #10b981;
+}
+
+/* ── Card ────────────────────────────────────────────────────── */
+.onb-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 36px 40px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Step Header ─────────────────────────────────────────────── */
+.onb-step-header {
+    margin-bottom: 28px;
+}
+
+.onb-step-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    margin-bottom: 14px;
+}
+
+.onb-step-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 4px;
+}
+
+.onb-step-desc {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0;
+}
+
+/* ── Fields ──────────────────────────────────────────────────── */
+.onb-field {
+    margin-bottom: 20px;
+}
+
+.onb-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+}
+
+.onb-input {
+    width: 100%;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 13px 16px;
+    color: #0f172a;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    box-sizing: border-box;
+}
+
+.onb-input:focus {
+    border-color: #10b981;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.onb-input::placeholder {
+    color: #cbd5e1;
+}
+
+.onb-input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: none;
+    opacity: 0.5;
+}
+
+.onb-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* ── Pill Buttons ────────────────────────────────────────────── */
+.onb-pill-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.onb-pill-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.onb-pill {
+    padding: 11px 8px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    text-align: center;
+}
+
+.onb-pill:hover {
+    border-color: #94a3b8;
+    color: #0f172a;
+    background: #f1f5f9;
+}
+
+.onb-pill.active-emerald {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.08);
+    color: #059669;
+}
+
+.onb-pill.active-red {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.08);
+    color: #dc2626;
+}
+
+.onb-pill.active-orange {
+    border-color: #f97316;
+    background: rgba(249, 115, 22, 0.08);
+    color: #ea580c;
+}
+
+.onb-pill.active-violet {
+    border-color: #8b5cf6;
+    background: rgba(139, 92, 246, 0.08);
+    color: #7c3aed;
+}
+
+/* ── Tag pills ───────────────────────────────────────────────── */
+.onb-tag-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.onb-tag {
+    padding: 7px 14px;
+    border-radius: 50px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.onb-tag:hover {
+    border-color: #94a3b8;
+    color: #0f172a;
+}
+
+.onb-tag.active-orange {
+    border-color: #f97316;
+    background: rgba(249, 115, 22, 0.08);
+    color: #ea580c;
+}
+
+.onb-tag.active-violet {
+    border-color: #8b5cf6;
+    background: rgba(139, 92, 246, 0.08);
+    color: #7c3aed;
+}
+
+/* ── Textarea ────────────────────────────────────────────────── */
+.onb-textarea {
+    width: 100%;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 13px 16px;
+    color: #0f172a;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    resize: vertical;
+    min-height: 90px;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.onb-textarea:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.onb-textarea::placeholder {
+    color: #cbd5e1;
+}
+
+/* ── Alert boxes ─────────────────────────────────────────────── */
+.onb-alert {
+    padding: 14px 16px;
+    border-radius: 12px;
+    margin-top: 4px;
+}
+
+.onb-alert-amber {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+}
+
+.onb-alert-blue {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+}
+
+.onb-alert-title {
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 4px;
+}
+
+.onb-alert-amber .onb-alert-title {
+    color: #92400e;
+}
+
+.onb-alert-blue .onb-alert-title {
+    color: #1e40af;
+}
+
+.onb-alert-body {
+    font-size: 12px;
+    color: #475569;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ── Error banner ────────────────────────────────────────────── */
+.onb-error {
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #dc2626;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* ── Summary (Step 4) ────────────────────────────────────────── */
+.onb-summary {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.onb-summary-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 14px;
+}
+
+.onb-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 1px solid #f1f5f9;
+    gap: 12px;
+}
+
+.onb-summary-row:last-child {
+    border-bottom: none;
+}
+
+.onb-summary-key {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.onb-summary-val {
+    font-size: 13px;
+    color: #0f172a;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: right;
+}
+
+/* ── Navigation Buttons ──────────────────────────────────────── */
+.onb-nav {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.onb-btn-back {
+    flex: 1;
+    padding: 14px;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.onb-btn-back:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.onb-btn-next {
+    flex: 2;
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    background: #10b981;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+}
+
+.onb-btn-next:hover:not(:disabled) {
+    background: #059669;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+}
+
+.onb-btn-next:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.onb-btn-skip {
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.onb-btn-skip:hover {
+    color: #64748b;
+}
+
+@media (max-width: 600px) {
+    .onb-card {
+        padding: 24px 20px;
+    }
+
+    .onb-grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .onb-pill-grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
